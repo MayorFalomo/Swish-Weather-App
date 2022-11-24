@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { AppContext } from "../Helper/Context";
 import { CountryStyled } from "./Country.styled";
 import { Countries } from "./Country.styled";
-export interface Countries {}
 
 export function Country() {
   const { countryData, theme } = useContext(AppContext);

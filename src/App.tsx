@@ -12,13 +12,13 @@ const App = () => {
   const [countryData, setCountryData] = useState<object>({});
   const [theme, setTheme] = useState<string>("light");
 
-  const url = `http://api.weatherstack.com/forecast?access_key=19feb7f0756b1006ea2eec6151d84d46&query=`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
   const countryUrl = `https://restcountries.com/v2/name`;
 
   //Weather api call
   const fetchWeather = (searchInput: any) => {
     axios
-      .get(`${url}${searchInput}`)
+      .get(`${url}`)
       .then((res) => setCountry(res.data))
       .catch((err) => console.log(err));
   };
@@ -39,6 +39,8 @@ const App = () => {
     fetchCountry(searchInput);
   }, [searchInput]);
 
+  console.log(country);
+  
   return (
     <AppContext.Provider
       value={{

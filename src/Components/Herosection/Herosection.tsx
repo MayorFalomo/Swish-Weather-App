@@ -5,9 +5,10 @@ import { Reports } from "./Herostyle.styled";
 import { Textsection } from "./Herostyle.styled";
 import { Time } from "./Herostyle.styled";
 
-export const Herosection = () => {
-  const { country, theme } = useContext(AppContext);
 
+export const Herosection = () =>{
+  const { theme, country } = useContext(AppContext);
+  
   const printDate = new Date().toLocaleString("default", { weekday: "long" });
   return (
     <HeroSection theme={theme}>
@@ -18,14 +19,14 @@ export const Herosection = () => {
       )}
       <Textsection>
         <Reports>
-          <img src={country.current?.weather_icons} alt="img"></img>
-          <h2>{country.current?.temperature} &deg;C</h2>
+          <img src={`http://openweathermap.org/img/w/${country.weather[0]?.icon}.png`} alt='img' />
+          <h2>{country.main?.temp} &deg;C</h2>
           <p>{country.request?.query}</p>
         </Reports>
         <Time>
           <h1>{country.current?.observation_time} </h1>
           <span>
-            {country.current?.weather_descriptions}, {printDate}
+            {country.weather[0]?.description}, {printDate}
           </span>
         </Time>
       </Textsection>

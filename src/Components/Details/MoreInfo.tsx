@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BiWind } from "react-icons/bi";
-import { BsSun } from "react-icons/bs";
+import { GiWindSlap } from "react-icons/gi";
 import { BsCloudSun } from "react-icons/bs";
 import { BsDropletHalf } from "react-icons/bs";
 import { Country } from "../Countries/Country";
@@ -28,14 +28,14 @@ export const MoreInfo = () => {
               <p>{<BsDropletHalf />} </p>
               <div>
                 <h3>Humidity </h3>
-                <span>{country.current?.humidity}% </span>
+                <span>{country.main?.humidity}% </span>
               </div>
             </Spanflex>
             <Spanflex>
-              <p>{<BsSun />} </p>
+              <p>{<GiWindSlap />} </p>
               <div>
-                <h3>UvIndex </h3>
-                <span>{country.current?.uv_index} of 10 </span>
+                <h3>Wind Degree </h3>
+                <span>{country.wind?.deg} </span>
               </div>
             </Spanflex>
           </FlexItem>
@@ -44,14 +44,14 @@ export const MoreInfo = () => {
               <p>{<BiWind />} </p>
               <div>
                 <h3>Wind Speed </h3>
-                <span>{country.current?.wind_speed} </span>
+                <span>{country.wind?.speed} </span>
               </div>
             </Spanflex>
             <Spanflex>
               <p>{<BsCloudSun />} </p>
               <div>
                 <h3>Visibility </h3>
-                <span>{country.current?.visibility} </span>
+                <span>{country?.visibility} </span>
               </div>
             </Spanflex>
           </FlexItem>
@@ -60,12 +60,12 @@ export const MoreInfo = () => {
         <Rainfall>
           <Sunset theme={theme}>
             <div>
-              <h2>Sunrise </h2>
-              <p>{country.forecast?.["2022-11-19"]?.astro?.sunrise}</p>
+              <h2>Latitude </h2>
+              <p>{country.coord?.lat}</p>
             </div>
             <div>
-              <h2> Sunset </h2>
-              <span> {country.forecast?.["2022-11-19"]?.astro?.sunset} </span>
+              <h2> Longitude </h2>
+              <span> {country.coord?.lon} </span>
             </div>
           </Sunset>
         </Rainfall>
