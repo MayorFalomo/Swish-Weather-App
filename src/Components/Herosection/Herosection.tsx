@@ -10,6 +10,12 @@ export const Herosection = () =>{
   const { theme, country } = useContext(AppContext);
   
   const printDate = new Date().toLocaleString("default", { weekday: "long" });
+
+  const times = country?.dt
+  const time = new Date(times * 1000);
+  const timeFormat = ('0' + time.getHours()).slice(-2) + ':' + ('0' + time.getMinutes()).slice(-2);
+  
+  
   return (
     <HeroSection theme={theme}>
       {theme === "dark" ? (
@@ -19,14 +25,14 @@ export const Herosection = () =>{
       )}
       <Textsection>
         <Reports>
-          <img src={`http://openweathermap.org/img/wn/${country.weather[0]?.icon}.png`} alt='img' />
+          <img src={`http://openweathermap.org/img/wn/${country.weather?.[0]?.icon}.png`} alt='img' />
           <h2>{country.main?.temp} &deg;C</h2>
-          <p>{country.request?.query}</p>
+          <p>{country?.name}</p>
         </Reports>
         <Time>
-          <h1>{country.current?.observation_time} </h1>
+          <h1>{timeFormat} </h1>
           <span>
-            {country.weather[0]?.description}, {printDate}
+            {country.weather?.[0]?.description}, {printDate}
           </span>
         </Time>
       </Textsection>
