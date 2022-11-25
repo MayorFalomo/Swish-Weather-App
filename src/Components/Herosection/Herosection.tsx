@@ -19,7 +19,7 @@ export const Herosection = () =>{
       )}
       <Textsection>
         <Reports>
-          <img src={`http://openweathermap.org/img/w/${country.weather[0]?.icon}.png`} alt='img' />
+          <img src={`http://openweathermap.org/img/wn/${country.weather[0]?.icon}.png`} alt='img' />
           <h2>{country.main?.temp} &deg;C</h2>
           <p>{country.request?.query}</p>
         </Reports>
