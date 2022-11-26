@@ -39,7 +39,6 @@ const App = () => {
     fetchCountry(searchInput);
   }, [searchInput]);
 
-  console.log(country);
   
   return (
     <AppContext.Provider
