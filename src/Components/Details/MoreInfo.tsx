@@ -4,6 +4,7 @@ import { GiWindSlap } from "react-icons/gi";
 import { BsCloudSun } from "react-icons/bs";
 import { BsDropletHalf } from "react-icons/bs";
 import { Country } from "../Countries/Country";
+import { MdLocationOn } from "react-icons/md";
 import { AppContext } from "../Helper/Context";
 import {
   FlexItem,
@@ -19,6 +20,7 @@ export interface MoreInfos {}
 
 export const MoreInfo = () => {
   const { country, theme } = useContext(AppContext);
+  
   return (
     <StyledInfo theme={theme}>
       <Displayflex>
@@ -59,13 +61,40 @@ export const MoreInfo = () => {
 
         <Rainfall>
           <Sunset theme={theme}>
-            <div>
-              <h2>Latitude </h2>
-              <p>{country.coord?.lat}</p>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <h2 style={{ display: "flex", alignItems: "center" }}>
+                Lat <MdLocationOn />
+              </h2>
+              <p>{country.coord?.lat} &deg;</p>
             </div>
-            <div>
-              <h2> Longitude </h2>
-              <span> {country.coord?.lon} </span>
+            <img
+              src="./earth.png"
+              alt=""
+              style={{
+                width: "150px",
+              }}
+            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <h2 style={{ display: "flex", alignItems: "center" }}>
+                Lon <MdLocationOn />
+              </h2>
+              <span> {country.coord?.lon} &deg; </span>
             </div>
           </Sunset>
         </Rainfall>
