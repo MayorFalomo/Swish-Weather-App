@@ -9,37 +9,45 @@ import axios from "axios";
 const App = () => {
   const [country, setCountry] = useState<object | null>({});
   const [searchInput, setSearchInput] = useState<string>("Nigeria");
-  const [countryData, setCountryData] = useState<object>({});
+  const [countryData, setCountryData] = useState<any>({});
   const [theme, setTheme] = useState<string>("light");
+  const [countryArr, setCountryArr] = useState<any>([]);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
   const countryUrl = `https://restcountries.com/v2/name`;
 
   //Weather api call
-  const fetchWeather = (searchInput: any) => {
+  const fetchWeather = (value: any) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
     axios
       .get(`${url}`)
       .then((res) => setCountry(res.data))
       .catch((err) => console.log(err));
   };
 
-  useEffect(() => {
-    fetchWeather(searchInput);
-  }, []);
-
-  //Countries Api Call
+  //Country Api Call
   const fetchCountry = (searchInput: any) => {
     axios
       .get(`${countryUrl}/${searchInput}?fullText=true`)
       .then((res) => setCountryData(res.data[0]))
+      .catch((err) => {
+        console.log(err);
+        setCountryData(null);
+      });
+  };
+
+  //Countries Api Call
+  const fetchCountries = () => {
+    axios
+      .get(`https://restcountries.com/v2/all`)
+      .then((res) => setCountryArr(res.data))
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
+    fetchCountries();
+    fetchWeather(searchInput);
     fetchCountry(searchInput);
-  }, [searchInput]);
-
-  //hello
+  }, []);
 
   return (
     <AppContext.Provider
@@ -49,10 +57,14 @@ const App = () => {
         searchInput,
         setSearchInput,
         fetchWeather,
+        fetchCountry,
         countryData,
         setCountryData,
         theme,
         setTheme,
+
+        countryArr,
+        setCountryArr,
       }}
     >
       <div className="App">

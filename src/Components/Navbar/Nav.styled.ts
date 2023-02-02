@@ -1,17 +1,29 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.div`
-  background-color: ${(props: any) =>
-    props.theme === "light" ? " #E0E5EC" : "#020419"};
   color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")};
+  position: fixed;
+  width: 100%;
+  z-index: 99999;
+  transition: 0.5s ease;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
   nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px;
+    padding: 20px;
     width: 94%;
     margin: auto;
   }
+
+  .search-ico {
+    color: ${(props: any) => (props.theme === "dark" ? " #fff" : " #000")};
+  }
+
   @media (max-width: 585px) {
     nav {
       display: flex;
@@ -53,6 +65,8 @@ export const Menubar = styled.div`
 
 export const Searchbar = styled.div`
   position: relative;
+  z-index: 999999;
+
   @media (max-width: 500px) {
     & {
       position: absolute;
@@ -61,10 +75,10 @@ export const Searchbar = styled.div`
     }
   }
   input {
-    padding: 10px 10px;
-    width: 300px;
-    border: none;
+    padding: 10px 15px;
+    border: 1px ghostwhite solid;
     outline: none;
+    border-radius: 10px;
   }
   button {
     position: absolute;

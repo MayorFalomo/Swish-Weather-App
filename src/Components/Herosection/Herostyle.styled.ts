@@ -8,12 +8,18 @@ export const HeroSection = styled.div`
   justify-content: center;
   margin: auto;
   width: 90%;
-  background-color: ${(props: any) =>
-    props.theme === "light" ? " #E0E5EC" : "#020419"};
   color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")};
+  margin-top: 8rem;
+  
+
   @media (max-width: 450px) {
     img {
       margin: 50px auto;
+    }
+
+    .bg-box {
+      width: 95% !important;
+      margin-top: 2rem;
     }
   }
   @media (max-width: 405px) {
@@ -89,11 +95,6 @@ export const Textsection = styled.div`
   transform: translateY(-50%);
   width: 90%;
   height: 80%;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.7px);
-  -webkit-backdrop-filter: blur(1.7px);
 
   @media (max-width: 520px) {
     & {
