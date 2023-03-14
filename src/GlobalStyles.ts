@@ -19,13 +19,16 @@ img{
 body{
     overflow-x: hidden;
     background-color: ${(props: any) =>
-      props.theme === "dark" ? " #020419" : " #E0E5EC"};
+      props.theme === "dark" ? " #020419" : " #fff"};
+      transition: 0.5s ease;
+      
 }
 .App{
     overflow-x: hidden;
     width: 100%;
      background-color: ${(props: any) =>
-       props.theme === "dark" ? " #020419" : " #E0E5EC"};
+       props.theme === "dark" ? " #020419" : " #fff"};
+       transition: 0.5s ease;
 }
 `;
 

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const StyledInfo = styled.div`
-  margin-top: 40px;
-  margin-bottom: 50px;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
-  background-color: ${(props: any) =>
-    props.theme === "light" ? " #E0E5EC" : "#020419"};
+  justify-content: space-between;
   color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")};
+  width: 90%;
+  margin: 4rem auto;
+  position: relative;
+
   @media (max-width: 950px) {
     & {
       display: flex;
@@ -18,13 +18,19 @@ export const StyledInfo = styled.div`
       gap: 30px;
     }
   }
+
+  @media (max-width: 450px) {
+    & {
+      margin-top: 3rem;
+    }
+  }
 `;
 
 export const Morestyled = styled.div`
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin: auto;
+  gap: 20px;
+  align-self: flex-start;
 
   @media (max-width: 500px) {
     & {
@@ -32,6 +38,7 @@ export const Morestyled = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      width: 100%;
     }
   }
 `;
@@ -49,18 +56,30 @@ export const FlexItem = styled.div`
   flex-direction: column;
   gap: 20px;
   padding: 40px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   background-color: ${(props: any) =>
     props.theme === "light" ? " #fff" : "#fff"};
   color: ${(props: any) => (props.theme === "light" ? "#000" : " #000")};
   border-radius: 15px;
+
+  @media (max-width: 500px) {
+    & {
+      max-width: 80%;
+    }
+  }
 `;
 export const Rainfall = styled.div`
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  .spin{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 20px;
+  }
   @media (max-width: 500px) {
     & {
       width: 100%;
@@ -71,18 +90,28 @@ export const Sunset = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 50px;
+  gap: 1rem;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  background-color: ${(props: any) =>
-    props.theme === "light" ? "#E0E5EC" : " #5091BA"};
-  color: ${(props: any) => (props.theme === "light" ? "#000" : " #000")};
+  transition: 0.5s ease;
+  color: ${(props: any) => (props.theme === "light" ? "#000" : " #fff")};
   width: 100%;
-
+  /* border: 2px red solid; */
   @media (max-width: 500px) {
     & {
       width: 100%;
+    }
+    .earth{
+  width: 100%;
+  height: 100%;
+    }
+    .latitude{
+      position: absolute;
+      left: 20px;
+    }
+    .longitude{
+      position: absolute;
+      right: 20px;
     }
   }
 `;
