@@ -16,12 +16,7 @@ export const Herosection = () => {
   const timeFormat =
     ("0" + time.getHours()).slice(-2) +
     ":" +
-    ("0" + time.getMinutes()).slice(-2);
-    
- 
-
-  // const twoDecimalPlace = Number.parseFloat(currentUnit).toFixed(2)
-  
+    ("0" + time.getMinutes()).slice(-2);  
   
 
   return (
