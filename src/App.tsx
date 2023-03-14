@@ -10,11 +10,22 @@ const App = () => {
   const [country, setCountry] = useState<object | null>({});
   const [searchInput, setSearchInput] = useState<string>("Nigeria");
   const [countryData, setCountryData] = useState<object>({});
-  const [theme, setTheme] = useState<string>("light");
-
+  const [currentUnit, setCurrentUnit] = useState<any>()
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
   const countryUrl = `https://restcountries.com/v2/name`;
 
+
+  const getThemeinStorage = () => {
+    return JSON.parse(localStorage.getItem("theme") ||'{}');
+  }
+
+    const [theme, setTheme] = useState<any>(getThemeinStorage());
+
+
+   useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme))
+   }, [theme])
+  
   //Weather api call
   const fetchWeather = (searchInput: any) => {
     axios
@@ -38,6 +49,7 @@ const App = () => {
   useEffect(() => {
     fetchCountry(searchInput);
   }, [searchInput]);
+  
 
   
   return (
@@ -52,6 +64,8 @@ const App = () => {
         setCountryData,
         theme,
         setTheme,
+        currentUnit,
+        setCurrentUnit
       }}
     >
       <div className="App">

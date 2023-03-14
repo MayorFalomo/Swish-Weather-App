@@ -18,6 +18,8 @@ export const StyledNav = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      /* border: 2px red solid; */
+      /* position: relative; */
     }
     @media (max-width: 520px) {
       nav h2 {
@@ -27,12 +29,41 @@ export const StyledNav = styled.div`
   }
 `;
 
+export const Convert = styled.div`
+select{
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+@media (max-width: 750px) {
+  select{
+    display: none;
+  }
+}
+@media (max-width: 585px) {
+  select{
+    display: block;
+    position: absolute;
+    top: 35px;
+    z-index: 999;
+    left: 20px;
+  }
+}
+@media (max-width:335px) {
+  select{
+    display: none;
+  }
+}
+`;
+
 export const Menubar = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 30px;
+  gap: 10px;
   width: 50%;
+  /* border: 2px red solid; */
   button {
     font-size: 30px;
   }
