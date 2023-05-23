@@ -9,8 +9,8 @@ export const HeroSection = styled.div`
   margin: auto;
   width: 90%;
   color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")};
+  background-color: ${(props: any) => (props.theme === "dark" ? "#020419" : " #E0E5EC")};
   margin-top: 8rem;
-  
 
   @media (max-width: 450px) {
     img {

@@ -13,21 +13,22 @@ const App = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [countryArr, setCountryArr] = useState<any>([]);
   const [currentUnit, setCurrentUnit] = useState<any>()
-
+  // const [theme, setTheme] = useState<string>("light");
+  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
   const countryUrl = `https://restcountries.com/v2/name`;
 
 
-  // const getThemeinStorage = () => {
-  //   return JSON.parse(localStorage.getItem("theme") ||'{}');
-  // }
+  const getThemeinStorage = () => {
+    return JSON.parse(localStorage.getItem("theme") ||'{}');
+  }
 
-  //   const [theme, setTheme] = useState<any>(getThemeinStorage() || "");
+    const [theme, setTheme] = useState<any>(getThemeinStorage() || "");
 
 
-  //  useEffect(() => {
-  //   localStorage.setItem('theme', JSON.stringify(theme))
-  //  }, [theme])
+   useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme))
+   }, [theme])
   
   //Weather api call
   const fetchWeather = (value: any) => {
@@ -75,8 +76,8 @@ const App = () => {
         fetchCountry,
         countryData,
         setCountryData,
-        // theme,
-        // setTheme,
+        theme,
+        setTheme,
         searchText,
         setSearchText,
         countryArr,
@@ -86,7 +87,7 @@ const App = () => {
       }}
     >
       <div className="App">
-        <GlobalStyle />
+        <GlobalStyle theme={theme} />
         <Navbar />
         <Herosection />
         <MoreInfo />

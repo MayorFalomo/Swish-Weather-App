@@ -5,6 +5,7 @@ export const StyledInfo = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")};
+  /* background-color: ${(props: any) => (props.theme === "light" ? "#020419" : " #E0E5EC")}; */
   width: 90%;
   margin: 4rem auto;
   position: relative;

@@ -49,7 +49,8 @@ export const Navbar = () => {
 
   return (
     <StyledNav theme={theme}>
-      <nav>
+      <nav >
+      <div className="NavContainer"  >
         <h2>SWISH. </h2>
         <Menubar>
            <Convert>
@@ -113,7 +114,8 @@ export const Navbar = () => {
             </p>
           )}
         </Menubar>
-      </nav>
+        </div>
+        </nav>
     </StyledNav>
   );
 };

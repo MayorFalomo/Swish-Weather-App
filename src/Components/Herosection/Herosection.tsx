@@ -32,6 +32,7 @@ export const Herosection = () => {
             width: "100%",
             height: "500px",
             borderRadius: "20px",
+            backgroundColor: '#000'
           }}
         ></div>
       ) : (
