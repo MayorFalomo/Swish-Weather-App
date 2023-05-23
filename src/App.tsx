@@ -18,16 +18,16 @@ const App = () => {
   const countryUrl = `https://restcountries.com/v2/name`;
 
 
-  const getThemeinStorage = () => {
-    return JSON.parse(localStorage.getItem("theme") ||'{}');
-  }
+  // const getThemeinStorage = () => {
+  //   return JSON.parse(localStorage.getItem("theme") ||'{}');
+  // }
 
-    const [theme, setTheme] = useState<any>(getThemeinStorage());
+  //   const [theme, setTheme] = useState<any>(getThemeinStorage() || "");
 
 
-   useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(theme))
-   }, [theme])
+  //  useEffect(() => {
+  //   localStorage.setItem('theme', JSON.stringify(theme))
+  //  }, [theme])
   
   //Weather api call
   const fetchWeather = (value: any) => {
@@ -75,8 +75,8 @@ const App = () => {
         fetchCountry,
         countryData,
         setCountryData,
-        theme,
-        setTheme,
+        // theme,
+        // setTheme,
         searchText,
         setSearchText,
         countryArr,
@@ -86,7 +86,7 @@ const App = () => {
       }}
     >
       <div className="App">
-        <GlobalStyle theme={theme} />
+        <GlobalStyle />
         <Navbar />
         <Herosection />
         <MoreInfo />

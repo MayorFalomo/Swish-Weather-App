@@ -101,7 +101,7 @@ export const MoreInfo = () => {
               <span> {country.coord?.lon} &deg; </span>
             </div>
           </Sunset>
-          <p className="spin" >Spin the image </p>
+          <p className="spin" >Spin the Earth </p>
         </Rainfall>
       </Displayflex>
       <Country />
