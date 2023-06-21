@@ -148,44 +148,8 @@ export const Navbar = () => {
 
   return (
     <StyledNav theme={theme}>
-      {/* <nav>
-        <h2>SWISH. </h2>
-        <Menubar>
-          <Convert>
-            <select onClick={convert} >
-              <option value={(country.main?.temp) + '\u00b0C'} >Celsius </option>
-              <option value={(country.main?.temp + 273.15) + '\u00b0K'} > Kevin </option>
-              <option value={((country.main?.temp * 9/5) + 32) + '\u00b0F' } > Farenheit </option>
-            </select>
-          </Convert>
-          <Searchbar>
-            <form>
-              <input
-                onChange={handleChange}
-                placeholder="Enter The Country"
-                type="text"
-              />
-              <button onClick={(e) => handleSubmit(e)} type="submit">
-                {<CiSearch />}{" "}
-              </button>
-            </form>
-          </Searchbar>
-          {theme === "dark" ? (
-            <p onClick={() => toggleTheme()}>
-              <BsFillMoonFill />
-            </p>
-          ) : (
-            <p onClick={() => toggleTheme()}>
-              <FiSun />
-            </p>
-          )}
-        </Menubar>
-      </nav> */}
+     
       <nav >
-        {/* <div className="NavHeader" >
-          <h2>SWISH </h2>
-          <h4>SWISH </h4>
-        </div> */}
       <div className="NavContainer"  >
         <h2>SWISH. </h2>
         <Menubar>

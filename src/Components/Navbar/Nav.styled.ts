@@ -26,7 +26,6 @@ export const StyledNav = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* flex-wrap: wrap; */
     padding: 20px;
     width: 94%;
     margin: auto;
@@ -38,8 +37,6 @@ export const StyledNav = styled.div`
     }
    h2{
     @media (max-width: 585px ) {
-       /* display: none; */
-       /* padding: 0; */
     }
    }
   }
