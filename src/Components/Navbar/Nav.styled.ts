@@ -11,13 +11,37 @@ export const StyledNav = styled.div`
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
+  .NavHeader {
+    /* border: 3px yellow solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    display: none;
+    @media (max-width: 585px ) {
+      display: flex;
+    }
+  }
   .NavContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* flex-wrap: wrap; */
     padding: 20px;
     width: 94%;
     margin: auto;
+    position: relative;
+    /* border: 2px red solid; */
+    @media (max-width: 700px ) {
+      flex-wrap: wrap;
+      padding:20px 0;
+    }
+   h2{
+    @media (max-width: 585px ) {
+       /* display: none; */
+       /* padding: 0; */
+    }
+   }
   }
 
   .search-ico {
@@ -30,43 +54,18 @@ export const StyledNav = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      /* border: 2px red solid; */
+      width: 100%;
+      /* border: 2px green solid; */
       /* position: relative; */
     }
     @media (max-width: 520px) {
       nav h2 {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        /* border: 2px solid yellow; */
       }
+
     }
   }
-`;
-
-export const Convert = styled.div`
-select{
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-@media (max-width: 750px) {
-  select{
-    display: none;
-  }
-}
-@media (max-width: 585px) {
-  select{
-    display: block;
-    position: absolute;
-    top: 35px;
-    z-index: 999;
-    left: 20px;
-  }
-}
-@media (max-width:335px) {
-  select{
-    display: none;
-  }
-}
 `;
 
 export const Menubar = styled.div`
@@ -74,8 +73,13 @@ export const Menubar = styled.div`
   align-items: center;
   justify-content: end;
   gap: 10px;
-  width: 50%;
-  /* border: 2px red solid; */
+  width: 100%;
+  /* border: 4px green solid; */
+  @media (max-width: 700px ) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   button {
     font-size: 30px;
   }
@@ -89,10 +93,44 @@ export const Menubar = styled.div`
     p {
       position: absolute;
       right: 20px;
-      top: 25px;
+      top: 15px;
     }
   }
 `;
+
+export const Convert = styled.div`
+/* border: 2px blue solid; */
+@media (max-width: 600px ) {
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+select{
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+ @media (max-width: 750px) {
+  select{
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  select{
+    display: none;
+  }
+}
+@media (max-width:335px) {
+  select{
+    display: none;
+  }
+}
+}
+`;
+
+
 
 export const Searchbar = styled.div`
   position: relative;
