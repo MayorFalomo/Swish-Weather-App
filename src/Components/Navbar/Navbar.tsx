@@ -11,22 +11,27 @@ import CountriesList from "../CountriesList/CountriesList";
 
 export const Navbar = () => {
 
-  const { searchInput, setSearchInput,country, fetchWeather, theme, setTheme, currentUnit, setCurrentUnit } =
+  const { searchInput, setSearchInput,country, fetchWeather,fetchCountry, theme, setTheme, currentUnit, setCurrentUnit } =
     useContext(AppContext);
 
-  const [searchText, setSearchText] = React.useState("Nigeria");
+  const [searchText, setSearchText] = React.useState("");
+  
   // Send input value
   const handleChange = (e: any) => {
+    console.log(searchInput);
     setSearchInput(e.target.value);
   };
 
   // console.log(country);
   
 
-  //Submit input value
+  //Function to Submit input value
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    //FetchWeather takes in a parameter called searchInput which is whatever we type
     fetchWeather(searchInput);
+    //FetchCountry takes in a parameter called SearchInput which gets called when  we submit.
+    fetchCountry(searchInput);
   };
 
   //Handle Lighting
@@ -37,21 +42,19 @@ export const Navbar = () => {
   const convert = (e: any) => {
     setCurrentUnit(e.target.value)
   }
-
  
 
   return (
     <StyledNav theme={theme}>
-     
       <nav >
       <div className="NavContainer"  >
         <h2>SWISH. </h2>
         <Menubar>
            <Convert>
             <select onClick={convert} >
-              <option value={(country.main?.temp) + '\u00b0C'} >Celsius </option>
-              <option value={(country.main?.temp + 273.15) + '\u00b0K'} > Kevin </option>
-              <option value={((country.main?.temp * 9/5) + 32) + '\u00b0F' } > Farenheit </option>
+              <option value={Math.floor(country.main?.temp) + '\u00b0C'} >Celsius </option>
+              <option value={Math.floor(country.main?.temp + 273.15) + '\u00b0K'} > Kevin </option>
+              <option value={Math.floor((country.main?.temp * 9/5) + 32) + '\u00b0F' } > Farenheit </option>
             </select>
           </Convert>
           <Searchbar>
@@ -63,15 +66,16 @@ export const Navbar = () => {
                 overflow: "hidden",
                 gap: "0.5rem",
               }}
-              onSubmit={(e) => handleSubmit(e)}
+              onSubmit={handleSubmit}
             >
               <input
-                value={searchText}
-                onChange={handleChange}
+                // value={searchText}
+                onChange={(e) => setSearchInput(e.target.value)}
+                // onChange={handleChange}
                 // onClickCapture={() => setPressed(true)}
                 placeholder="Enter The Country..."
                 type="text"
-                required
+                // required
                 style={{
                   width: "90%",
                   textTransform: "capitalize",

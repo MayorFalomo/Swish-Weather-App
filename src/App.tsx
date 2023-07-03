@@ -38,7 +38,7 @@ const App = () => {
       .then((res) => setCountry(res.data))
       .catch((err) => console.log(err));
   };
-
+  
   //Country Api Call
   const fetchCountry = (searchInput: any) => {
     axios
@@ -63,6 +63,7 @@ const App = () => {
     fetchCountry(searchInput)
     fetchWeather(searchInput)
   }, [])
+  
 
   
   return (
