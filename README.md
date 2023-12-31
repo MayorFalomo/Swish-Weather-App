@@ -1,12 +1,20 @@
 
 # Swish
 
+https://swish-weather-app.netlify.app/
+
+![Logo](https://res.cloudinary.com/dsghy4siv/image/upload/v1701440042/llrjpudw5tec1nbv0n5h.webp)
+
+
+
 An Open Source Weather App made with Typescript & ReactJs.
 ## Features
 
 - Search Weather Conditions Globally
+- Temperature Converter
 - Dark Mode
 - Show Country Info
+- Interactive 3D Map of the Earth
 
 
 
