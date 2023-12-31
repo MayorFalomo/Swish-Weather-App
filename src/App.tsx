@@ -31,8 +31,8 @@ const App = () => {
    }, [theme])
   
   //Weather api call
-  const fetchWeather = (value: any) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
+  const fetchWeather = (country: any) => {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${country}&units=metric&APPID=528a4189c2db4afdc92592c1adf225a3`;
     axios
       .get(`${url}`)
       .then((res) => setCountry(res.data))
